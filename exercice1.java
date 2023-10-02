@@ -1,4 +1,4 @@
-public class vars{ 
+public class exercice1{ 
     public static void main(String[] args) {
         String name = "Alex";
         Integer age = 25;
