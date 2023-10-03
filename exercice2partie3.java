@@ -9,14 +9,14 @@ public class exercice2partie3 {
         Integer max = Integer.parseInt(args[1]);
 
         for(Integer i = min; i < max; i++){
-            if(i %3 ==0){
+            if(i %3 == 0 && i %5 ==0){
+                System.out.print("FizzBuzz");
+            }
+            else if(i %3 ==0){
                 System.out.print("Fizz");
             }
             else if(i %5 ==0){
                 System.out.print("Buzz");    
-            }
-            else if(i %3 == 0 && i %5 ==0){
-                System.out.print("FizzBuzz");
             }
             else{
                 System.out.print(i);
