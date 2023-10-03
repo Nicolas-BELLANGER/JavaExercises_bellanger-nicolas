@@ -7,7 +7,7 @@ public class exercice4partie3 {
         for(Integer i = start; i<end+1; i++){   
             count+=i*i; 
         }
-        System.out.print("La somme des nombres pairs entre " + start + " et " +end+ " est : " + count);
+        System.out.print("La somme des carrés des nombre entre " + start + " et " +end+ " est : " + count);
         
     }
 }
