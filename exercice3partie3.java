@@ -9,7 +9,7 @@ public class exercice3partie3 {
                 count+=i;
             }
         }
-        System.out.print("La somme des nombres pairs entre 1 et 50 est : " + count);
+        System.out.print("La somme des nombres pairs entre" +start+ " et "+ end +" est : " + count);
         
     }
 }
