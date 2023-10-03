@@ -1,16 +1,12 @@
-
-import java.util.Scanner;
-
 public class exercice2partie3 {
     public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Saisissez un minimum : ");
-        Integer min = scanner.nextInt();
-        
-        System.out.print("Saisissez un maximum : ");
-        Integer max = scanner.nextInt();
+        if (args.length != 2) {
+            System.err.println("Erreur : Deux arguments sont nécessaire");
+            System.exit(1);
+        }
+    
+        Integer min = Integer.parseInt(args[0]);
+        Integer max = Integer.parseInt(args[1]);
 
         for(Integer i = min; i < max; i++){
             if(i %3 ==0){
