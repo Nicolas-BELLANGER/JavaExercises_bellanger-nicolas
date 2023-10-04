@@ -9,56 +9,177 @@ public class morpion {
                             {' ',' ',' '}
                             };
 
-        Random rand = new Random();
-        Integer Player = rand.nextInt(1,3);
-        char joueurActuel;
-        Boolean EndGame = false;
 
         Scanner scanner = new Scanner(System.in);
 
-        while(EndGame != true)
+        System.out.println();
+        System.out.println("Choississez le mode : \n\n Joueur contre BOT [1] \n Joueur contre Joueur [2] \n BOT contre BOT [3]");
+        Integer mode = scanner.nextInt();
+        System.out.println();
+        
+        /////////////////////////////////---------------- Mode 1 --------------------/////////////////////////////////
+
+        if(mode == 1)
         {
-            
-            if(Player == 1){
-                afficherTableau(tab);
-                joueurActuel = 'X';
-                System.out.println("Joueur, c'est à votre tour.");
-                System.out.println();
-                System.out.print("Veuillez saisir la ligne : ");
-                Integer ligne = scanner.nextInt();
-                System.out.print("Veuillez saisir la colonne : ");
-                Integer colonne = scanner.nextInt();
+            Random rand = new Random();
+            Integer Player = rand.nextInt(1,3);
+            char joueurActuel;
+            Boolean EndGame = false;
 
-                tab[ligne][colonne] = 'X';
-                Player = 2;         
-            }
+            while(EndGame != true)
+            {
                 
-            else if(Player == 2){
-                afficherTableau(tab);
-                joueurActuel = 'O';
-                JoueurOrdi(tab, rand, joueurActuel);
-                Player = 1;      
-            }
-
-            afficherTableau(tab);
-
-             if(partieNulle(tab)){
-                System.out.println("Match nul !");
-                EndGame = true;
-            }
-            if(Win(tab)){
                 if(Player == 1){
-                    System.out.println("Victoire Ordi !");
+                    afficherTableau(tab);
+                    joueurActuel = 'X';
+                    System.out.println("Joueur, c'est à votre tour.");
+                    System.out.println();
+                    System.out.print("Veuillez saisir la ligne : ");
+                    Integer ligne = scanner.nextInt();
+                    System.out.print("Veuillez saisir la colonne : ");
+                    Integer colonne = scanner.nextInt();
+
+                    tab[ligne][colonne] = 'X';
+                    Player = 2;         
                 }
-                else{
-                    System.out.println("Victoire Joueur !");
+                    
+                else if(Player == 2){
+                    afficherTableau(tab);
+                    joueurActuel = 'O';
+                    JoueurOrdi(tab, rand, joueurActuel);
+                    Player = 1;      
                 }
-                EndGame = true;
+
+                afficherTableau(tab);
+
+                if(partieNulle(tab)){
+                    System.out.println("Match nul !");
+                    EndGame = true;
+                }
+                if(Win(tab)){
+                    if(Player == 1){
+                        System.out.println("Victoire Ordi !");
+                    }
+                    else{
+                        System.out.println("Victoire Joueur !");
+                    }
+                    EndGame = true;
+                }
+
             }
 
+            scanner.close();
         }
 
-        scanner.close();
+        /////////////////////////////////--------------------------------------------/////////////////////////////////
+        /////////////////////////////////---------------- Mode 2 --------------------/////////////////////////////////
+
+        if(mode == 2)
+        {
+            Random rand = new Random();
+            Integer Player = rand.nextInt(1,3);
+            char joueurActuel;
+            Boolean EndGame = false;
+
+            while(EndGame != true)
+            {
+                
+                if(Player == 1){
+                    afficherTableau(tab);
+                    joueurActuel = 'X';
+                    System.out.println("Joueur X, c'est à votre tour.");
+                    System.out.println();
+                    System.out.print("Veuillez saisir la ligne : ");
+                    Integer ligne = scanner.nextInt();
+                    System.out.print("Veuillez saisir la colonne : ");
+                    Integer colonne = scanner.nextInt();
+
+                    tab[ligne][colonne] = 'X';
+                    Player = 2;         
+                }
+                    
+                else if(Player == 2){
+                    afficherTableau(tab);
+                    joueurActuel = 'O';
+                    System.out.println("Joueur O, c'est à votre tour.");
+                    System.out.println();
+                    System.out.print("Veuillez saisir la ligne : ");
+                    Integer ligne = scanner.nextInt();
+                    System.out.print("Veuillez saisir la colonne : ");
+                    Integer colonne = scanner.nextInt();
+
+                    tab[ligne][colonne] = 'O';
+                    Player = 1;      
+                }
+
+                afficherTableau(tab);
+
+                if(partieNulle(tab)){
+                    System.out.println("Match nul !");
+                    EndGame = true;
+                }
+                if(Win(tab)){
+                    if(Player == 1){
+                        System.out.println("Victoire Joueur O !");
+                    }
+                    else{
+                        System.out.println("Victoire Joueur X !");
+                    }
+                    EndGame = true;
+                }
+
+            }
+
+            scanner.close();
+        }
+
+        /////////////////////////////////--------------------------------------------/////////////////////////////////
+        /////////////////////////////////---------------- Mode 3 --------------------/////////////////////////////////
+
+        if(mode == 3)
+        {
+            Random rand = new Random();
+            Integer Player = rand.nextInt(1,3);
+            char joueurActuel;
+            Boolean EndGame = false;
+
+            while(EndGame != true)
+            {
+                
+                if(Player == 1){
+                    afficherTableau(tab);
+                    joueurActuel = 'X';
+                    JoueurOrdi(tab, rand, joueurActuel);
+                    Player = 2;             
+                }
+                    
+                else if(Player == 2){
+                    afficherTableau(tab);
+                    joueurActuel = 'O';
+                    JoueurOrdi(tab, rand, joueurActuel);
+                    Player = 1;        
+                }
+
+                afficherTableau(tab);
+
+                if(partieNulle(tab)){
+                    System.out.println("Match nul !");
+                    EndGame = true;
+                }
+                if(Win(tab)){
+                    if(Player == 1){
+                        System.out.println("Victoire Joueur O !");
+                    }
+                    else{
+                        System.out.println("Victoire Joueur X !");
+                    }
+                    EndGame = true;
+                }
+
+            }
+
+            scanner.close();
+        }
     }
 
     public static void JoueurOrdi(char tab[][], Random random, char joueur){
@@ -66,7 +187,7 @@ public class morpion {
         Integer colonne;  
         
         do{
-            System.out.println("Tour de l'ordinateur");
+            System.out.println("Tour de l'ordinateur " + joueur);
             ligne = random.nextInt(3);
             colonne = random.nextInt(3);
         } while(tab[ligne][colonne] != ' ');
